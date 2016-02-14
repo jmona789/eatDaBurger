@@ -7,12 +7,12 @@
       Not Devoured
       {{#each burger_data}}
         {{#unless this.devoured}}
-        <div style="border-style: solid; width: 180px; margin-bottom: 5px; padding: 6px; background-color:#FFEABF; color: white;">      
+        <div class="burgerBorder">      
           <div>
-            <pre style="background-color:#4F351B; color:white; margin-bottom: 0px;">{{this.id}}. {{this.burger_name}}</pre>
+            <pre class="burger">{{this.id}}. {{this.burger_name}}</pre>
           </div>
         </div>
-        <div style="margin-bottom: 15px;">
+        <div class="devourBtn">
           <form method="POST" action="/update?_method=POST">
             <input type="hidden" type="text" name="id" value={{this.id}}>
             <button type="submit" class="btn btn-default">Devour!</button>
@@ -25,9 +25,9 @@
       Devoured
       {{#each burger_data}}
         {{#if this.devoured}}
-        <div style="border-style: solid; width: 180px; margin-bottom: 5px; padding: 6px; background-color:#FFEABF; color: white;">      
+        <div class="burgerBorder">      
           <div>
-            <pre style="background-color:#4F351B; color:white; margin-bottom: 0px;">{{this.id}}. {{this.burger_name}}</pre>
+            <pre class="burger">{{this.id}}. {{this.burger_name}}</pre>
           </div>
         </div>
         {{/if}}
@@ -38,7 +38,7 @@
     <div class=col-md-12>
       <form action="/create" method="POST">
         <input placeholder="Enter Burger Name" name="burger_name"></input><br>
-        <button type="submit" class="btn btn-primary" style="margin-top: 5px">Add A New Burger!</button>
+        <button type="submit" id= "addBurgerBtn"class="btn btn-primary">Add A New Burger!</button>
       </form>
     </div>
   </div>

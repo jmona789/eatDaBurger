@@ -1,0 +1,21 @@
+.burgerBorder{
+  border-style: solid; 
+  width: 180px; 
+  margin-bottom: 5px; 
+  padding: 6px; 
+  background-color:#FFEABF; 
+  color: white;
+}
+
+.burger{
+  background-color:#4F351B; 
+  color:white; margin-bottom: 0px;
+}
+
+.devourBtn{
+margin-bottom: 15px;
+}
+
+#addBurgerBtn{
+  margin-top: 5px;
+}
