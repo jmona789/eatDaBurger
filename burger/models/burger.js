@@ -11,12 +11,7 @@ var burgers = {
     orm.selectAll("burgers", function(res){
       cb(res);
     });
-  },
-  // findNotDevoured: function(cb) {
-  //   orm.selectNotDevoured("burgers", function(res){
-  //     cb(res);
-  //   });
-  // },
+  }
 };
 
 module.exports = burgers;
