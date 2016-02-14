@@ -5,11 +5,21 @@
   padding: 6px; 
   background-color:#FFEABF; 
   color: white;
+  position: relative;
+  z-index: -100;
 }
 
 .burger{
   background-color:#4F351B; 
   color:white; margin-bottom: 0px;
+  position: relative;
+  bottom: 55px;
+  height: 36px;
+  width: 170px;
+  font-size: 20px;
+  border-radius: 25px;
+  text-align: center;
+
 }
 
 .devourBtn{
@@ -18,4 +28,14 @@ margin-bottom: 15px;
 
 #addBurgerBtn{
   margin-top: 5px;
+}
+
+.burgerImg{
+  height:100px;
+  position: relative;
+  z-index: -10;
+}
+
+.burgie{
+  height: 300px;
 }
