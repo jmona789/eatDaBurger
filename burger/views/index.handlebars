@@ -8,10 +8,16 @@
     Not Devoured
     {{#each burger_data}}
       {{#unless this.devoured}}
-      <div style="border-style: solid; width: 180px; margin-bottom: 15px; padding: 6px; background-color:Teal; color: white;">      
+      <div style="border-style: solid; width: 180px; margin-bottom: 5px; padding: 6px; background-color:#FFEABF; color: white;">      
         <div>
-          <pre>{{this.id}}. {{this.burger_name}}</pre>
+          <pre style="background-color:#4F351B; color:white; margin-bottom: 0px;">{{this.id}}. {{this.burger_name}}</pre>
         </div>
+      </div>
+      <div style="margin-bottom: 15px;">
+        <form method="POST" action="/update?_method=PUT">
+          <input type="hidden" type="text" name="member_id" value={{this.id}}>
+          <button type="submit" class="btn btn-default">Devour!</button>
+        </form>
       </div>
       {{/unless}}
     {{/each}}
@@ -20,10 +26,16 @@
     Devoured
     {{#each burger_data}}
       {{#if this.devoured}}
-      <div style="border-style: solid; width: 180px; margin-bottom: 15px; padding: 6px; background-color:Teal; color: white;">      
+      <div style="border-style: solid; width: 180px; margin-bottom: 5px; padding: 6px; background-color:#FFEABF; color: white;">      
         <div>
-          <pre>{{this.id}}. {{this.burger_name}}</pre>
+          <pre style="background-color:#4F351B; color:white; margin-bottom: 0px;">{{this.id}}. {{this.burger_name}}</pre>
         </div>
+      </div>
+      <div style="margin-bottom: 15px;">
+        <form method="POST" action="/update?_method=PUT">
+          <input type="hidden" type="text" name="member_id" value={{this.id}}>
+          <button type="submit" class="btn btn-default">Devour!</button>
+        </form>
       </div>
       {{/if}}
     {{/each}}
