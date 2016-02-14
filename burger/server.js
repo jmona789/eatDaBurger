@@ -2,8 +2,31 @@ var express = require("express");
 var methodoverride = require("method-override");
 var bodyparser = require("body-parser");
 var app = express();
-var expressHandlebars = require('express-handlebars');
+
+//Serve static content for the app from the "public" directory in the application directory.
+app.use(express.static(__dirname + '/public'));
+
+// parse application/x-www-form-urlencoded 
+app.use(bodyParser.urlencoded({
+  extended: false
+}))
+// override with POST having ?_method=DELETE
+app.use(methodOverride('_method'))
+var exphbs = require('express-handlebars');
+app.engine('handlebars', exphbs({
+    defaultLayout: 'main'
+}));
+app.set('view engine', 'handlebars');
+
+var routes = require('./controllers/super_clubs_controller.js');
+app.use('/', routes);
+app.use('/create', routes);
+app.use('/update', routes);
+app.use('/delete', routes);
+
+var port = 3000;
+app.listen(port);
 
 app.listen(PORT, function() {
-  console.log('Listening on %s', PORT);
+  console.log("Listening on %s", PORT);
 });
