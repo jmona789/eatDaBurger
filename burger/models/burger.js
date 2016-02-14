@@ -7,16 +7,16 @@ var burgers = {
   devourBurger: function(inputId, cb){
     orm.updateOne("burgers", inputId, cb);
   },
-  findDevoured: function(cb) {
-    orm.selectDevoured("burgers", function(res){
+  findAll: function(cb) {
+    orm.selectAll("burgers", function(res){
       cb(res);
     });
   },
-  findNotDevoured: function(cb) {
-    orm.selectNotDevoured("burgers", function(res){
-      cb(res);
-    });
-  },
+  // findNotDevoured: function(cb) {
+  //   orm.selectNotDevoured("burgers", function(res){
+  //     cb(res);
+  //   });
+  // },
 };
 
 module.exports = burgers;

@@ -3,37 +3,25 @@ var mysql = require("mysql");
 
 
 module.exports = {
-  displayDevouredBurgers: function(){
-    connection.query("SELECT burger_name FROM burgers WHERE devoured = 1", function(err, results) {
-      if(err) {
-        throw err;
-      }
-      var data = {
-        burgers: results
-      }
-
-      console.log(data.burgers);
-      //res.render('noteview', data);
+  insertOne: function(tableInput, nameInput, cb) { 
+    var query = "INSERT INTO " + tableInput + " (burger_name) VALUES (?)";
+    connection.query(query, [nameInput], function(err, result) {
+      if (err) throw err;
+      cb(result);
     });
   },
-  displayNotDevouredBurgers: function(){
-    connection.query("SELECT burger_name FROM burgers WHERE devoured = 0", function(err, results) {
-      if(err) {
-        throw err;
-      }
-      var data = {
-        burgers: results
-      }
-
-      console.log(data.burgers);
-      //res.render('noteview', data);
+  updateOne: function(tableInput, idInput, cb) {
+    var query = "UPDATE " + tableInput + " SET devoured = 1  WHERE id = ?";
+    connection.query(query, [idInput], function(err, result) {
+      if (err) throw err;
+      cb(result);
     });
   },
-  addBurger: function(burger_name){
-    connection.query("INSERT INTO burgers (burger_name) VALUES(?)", burger_name, function(err, results) {
-      if(err) {
-        throw err;
-      }
+  selectAll: function(tableInput, cb) {
+    var query = 'SELECT * FROM ' + tableInput + ';';
+    connection.query(query, function(err, result) {
+      if (err) throw err;
+      cb(result);
     });
   }
 }

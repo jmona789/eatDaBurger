@@ -1,0 +1,31 @@
+<div class="container-fluid">
+  <div>
+    <h1>Eat Da Burger!</h1>
+  </div>
+</div>
+<div class= "row-fluid">
+  <div class="col-md-6">
+    Not Devoured
+    {{#each burger_data}}
+      {{#unless this.devoured}}
+      <div style="border-style: solid; width: 180px; margin-bottom: 15px; padding: 6px; background-color:Teal; color: white;">      
+        <div>
+          <pre>{{this.id}}. {{this.burger_name}}</pre>
+        </div>
+      </div>
+      {{/unless}}
+    {{/each}}
+  </div>
+  <div class="col-md-6">
+    Devoured
+    {{#each burger_data}}
+      {{#if this.devoured}}
+      <div style="border-style: solid; width: 180px; margin-bottom: 15px; padding: 6px; background-color:Teal; color: white;">      
+        <div>
+          <pre>{{this.id}}. {{this.burger_name}}</pre>
+        </div>
+      </div>
+      {{/if}}
+    {{/each}}
+  </div>
+</div>
