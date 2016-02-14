@@ -16,4 +16,11 @@ router.post('/update', function(req, res){
   });
 });
 
+router.post('/create', function(req, res) {
+  burger.addBurger(req.body.burger_name, function(result){
+    console.log(result);
+    res.redirect('/');
+  });
+});
+
 module.exports = router;
